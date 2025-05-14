@@ -19,6 +19,8 @@ def main():
     ventana = tk.Tk()
     ventana.title("Imagen en Tkinter")
 
+    #Declaro a la ventana como una variable global para poder usarla en todo el programa sin necesidad de pasarla como parametro en las funciones
+    global ventana
 
     # Obtener el tamaño de la pantalla
     ancho = ventana.winfo_screenwidth()  # Obtengo el ancho del escritorio
@@ -33,13 +35,16 @@ def main():
     # Paso 5: Convertir la imagen a un formato que Tkinter entienda
     imagenTk = ImageTk.PhotoImage(imagenRedimensionada)
 
-    # Paso 6: Crear un Label (etiqueta) en Tkinter para mostrar la imagen
+    # Paso 6: Guardar a la imagen como atributo de la ventana para que no sea eliminada por el recolector de basura y pueda estar siempre a disposición
+    ventana.imagenTk
+
+    # Paso 7: Crear un Label (etiqueta) en Tkinter para mostrar la imagen
+        #Una vez en el programa principal para la imagen de portada
+        #Para imagen de fondo, una por función que cambie el contenido de la ventana (despues de limpiar)
     etiqueta = tk.Label(ventana, image=imagenTk)
     etiqueta.pack()  # Colocar la etiqueta en la ventana
 
-
-
-    # Paso 7: Mostrar la ventana
+    # Paso 8: Mostrar la ventana
     ventana.mainloop()  # Ejecutar la aplicación
 if __name__=="__main__":
     main()
